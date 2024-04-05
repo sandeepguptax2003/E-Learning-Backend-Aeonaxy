@@ -19,7 +19,7 @@ exports.loginAdmin = async (req, res) => {
       res.status(401).json({ message: 'Invalid credentials' });
     }
   } catch (error) {
-    logger.error('Internal server error:', error);
+    console.error('Internal server error:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
 };
@@ -36,7 +36,7 @@ exports.createCourse = async (req, res) => {
     await course.save();
     res.status(201).json({ message: 'Course created successfully', course });
   } catch (error) {
-    logger.error('Internal server error:', error);
+    console.error('Internal server error:', error);
     res.status(500).json({ message: 'Failed to create course', error: error.message });
   }
 };
@@ -77,7 +77,7 @@ exports.updateCourse = async (req, res) => {
     }
     res.status(200).json({ message: 'Course updated successfully', course });
   } catch (error) {
-    logger.error('Internal server error:', error);
+    console.error('Internal server error:', error);
     res.status(500).json({ message: 'Failed to update course', error: error.message });
   }
 };
@@ -92,7 +92,7 @@ exports.deleteCourse = async (req, res) => {
     }
     res.status(200).json({ message: 'Course deleted successfully' });
   } catch (error) {
-    logger.error('Internal server error:', error);
+    console.error('Internal server error:', error);
     res.status(500).json({ message: 'Failed to delete course', error: error.message });
   }
 };
