@@ -10,9 +10,8 @@ exports.loginAdmin = async (req, res) => {
 
     // Check if the email and password match the fixed credentials
     if (email === 'admin@gmail.com' && password === 'admin') {
-
-      // Generate a JWT token For Authentication purposes
-      const token = jwt.sign({ adminId: admin._id }, 'sandeep123', { expiresIn: '1h' });
+      // Generate a JWT token For Authentication
+      const token = jwt.sign({ /* admin data */ }, 'sandeep123', { expiresIn: '1h' });
 
       res.status(200).json({ token });
     } else {
